@@ -4,7 +4,6 @@ using BepuPhysics;
 using BepuPhysics.Collidables;
 using BepuPhysics.CollisionDetection;
 using BepuPhysics.Constraints;
-using BepuUtilities;
 using System.Numerics;
 
 namespace OpenEngine.Core.Physics
@@ -12,7 +11,6 @@ namespace OpenEngine.Core.Physics
     public class BepuPhysicsWrapper : IDisposable
     {
         private Simulation _simulation;
-        private SimpleThreadDispatcher _dispatcher;
         private bool _disposed;
 
         public Simulation Simulation => _simulation;
@@ -20,21 +18,20 @@ namespace OpenEngine.Core.Physics
         public BepuPhysicsWrapper()
         {
             var bufferPool = new BufferPool();
-            _simulation = Simulation.Create(bufferPool, new NarrowPhaseCallbacks(), new ContactCallbacks { };
-            _dispatcher = new SimpleThreadDispatcher(Environment.ProcessorCount);
+            _simulation = Simulation.Create(bufferPool, new NarrowPhaseCallbacks(), new ContactCallbacks());
         }
 
         public void Initialize()
         {
-            _simulation.Deterministic = new BepuUtilities.Deterministic();
+            // BepuPhysics initialized
         }
 
         public void Update(float deltaTime)
         {
-            _simulation.Timestep(deltaTime, _dispatcher);
+            _simulation.Timestep(deltaTime);
         }
 
-        public BodyHandle CreateBody(Vector3 position, Quaternion orientation, float mass, Collidable collidable)
+        public BodyHandle CreateBody(Vector3 position, Quaternion orientation, float mass, CollidableDescription collidable)
         {
             var bodyDescription = BodyDescription.CreateDynamic(
                 position,
@@ -45,7 +42,7 @@ namespace OpenEngine.Core.Physics
             return _simulation.Bodies.Add(bodyDescription);
         }
 
-        public BodyHandle CreateStaticBody(Vector3 position, Quaternion orientation, Collidable collidable)
+        public BodyHandle CreateStaticBody(Vector3 position, Quaternion orientation, CollidableDescription collidable)
         {
             var bodyDescription = BodyDescription.CreateStatic(
                 position,
@@ -55,25 +52,25 @@ namespace OpenEngine.Core.Physics
             return _simulation.Bodies.Add(bodyDescription);
         }
 
-        public Collidable CreateBoxCollidable(float width, float height, float depth, float mass)
+        public CollidableDescription CreateBoxCollidable(float width, float height, float depth, float mass)
         {
             var box = new Box(width, height, depth);
             var shapeIndex = _simulation.Shapes.Add(box);
-            return new Collidable(shapeIndex, mass);
+            return new CollidableDescription(shapeIndex, mass);
         }
 
-        public Collidable CreateSphereCollidable(float radius, float mass)
+        public CollidableDescription CreateSphereCollidable(float radius, float mass)
         {
             var sphere = new Sphere(radius);
             var shapeIndex = _simulation.Shapes.Add(sphere);
-            return new Collidable(shapeIndex, mass);
+            return new CollidableDescription(shapeIndex, mass);
         }
 
-        public Collidable CreateCapsuleCollidable(float radius, float height, float mass)
+        public CollidableDescription CreateCapsuleCollidable(float radius, float height, float mass)
         {
             var capsule = new Capsule(radius, height);
             var shapeIndex = _simulation.Shapes.Add(capsule);
-            return new Collidable(shapeIndex, mass);
+            return new CollidableDescription(shapeIndex, mass);
         }
 
         public void ApplyForce(BodyHandle bodyHandle, Vector3 force)
@@ -119,7 +116,6 @@ namespace OpenEngine.Core.Physics
         {
             if (!_disposed)
             {
-                _dispatcher?.Dispose();
                 _simulation?.Dispose();
                 _disposed = true;
             }

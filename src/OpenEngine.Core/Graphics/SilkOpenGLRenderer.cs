@@ -3,6 +3,7 @@
 using Silk.NET.OpenGL;
 using Silk.NET.Windowing;
 using System;
+using System.Collections.Generic;
 using System.Numerics;
 
 namespace OpenEngine.Core.Graphics
@@ -10,16 +11,31 @@ namespace OpenEngine.Core.Graphics
     public class SilkOpenGLRenderer : IDisposable
     {
         private GL _gl;
-        private IWindow _window;
+        private IWindow? _window;
+        private Dictionary<string, uint> _shaderPrograms;
+        private Dictionary<string, uint> _vertexArrays;
+        private Dictionary<string, uint> _vertexBuffers;
+        private Dictionary<string, uint> _textures;
+        private Dictionary<string, uint> _framebuffers;
         private bool _disposed;
 
         public GL GL => _gl;
-        public IWindow Window => _window;
+        public IWindow? Window => _window;
 
-        public SilkOpenGLRenderer(IWindow window)
+        public SilkOpenGLRenderer(IWindow? window)
         {
             _window = window;
-            _gl = GL.GetApi(window);
+            _shaderPrograms = new Dictionary<string, uint>();
+            _vertexArrays = new Dictionary<string, uint>();
+            _vertexBuffers = new Dictionary<string, uint>();
+            _textures = new Dictionary<string, uint>();
+            _framebuffers = new Dictionary<string, uint>();
+            _disposed = false;
+            
+            if (_window != null)
+            {
+                _gl = GL.GetApi(_window);
+            }
         }
 
         public void Initialize()
@@ -32,6 +48,7 @@ namespace OpenEngine.Core.Graphics
 
         public void Clear()
         {
+            _gl.ClearColor(0.1f, 0.1f, 0.15f, 1.0f);
             _gl.Clear(ClearBufferMask.ColorBufferBit | ClearBufferMask.DepthBufferBit);
         }
 
@@ -42,7 +59,7 @@ namespace OpenEngine.Core.Graphics
 
         public uint CreateShader(ShaderType type, string source)
         {
-            uint shader = _gl.CreateShader type;
+            uint shader = _gl.CreateShader(type);
             _gl.ShaderSource(shader, source);
             _gl.CompileShader(shader);
 
@@ -60,7 +77,7 @@ namespace OpenEngine.Core.Graphics
 
         public uint CreateProgram(uint vertexShader, uint fragmentShader)
         {
-            uint program =(_gl.CreateProgram)();
+            uint program = _gl.CreateProgram();
             _gl.AttachShader(program, vertexShader);
             _gl.AttachShader(program, fragmentShader);
             _gl.LinkProgram(program);
@@ -187,6 +204,46 @@ namespace OpenEngine.Core.Graphics
         {
             _gl.TexParameterI(target, pname, param);
         }
+
+        public void GenerateMipmap(TextureTarget target)
+        {
+            _gl.GenerateMipmap(target);
+        }
+
+        public void DeleteTexture(uint texture)
+        {
+            _gl.DeleteTexture(texture);
+        }
+
+        public uint CreateFramebuffer()
+        {
+            return _gl.GenFramebuffer();
+        }
+
+        public void BindFramebuffer(FramebufferTarget target, uint framebuffer)
+        {
+            _gl.BindFramebuffer(target, framebuffer);
+        }
+
+        public void FramebufferTexture2D(FramebufferTarget target, FramebufferAttachment attachment, TextureTarget texTarget, uint texture, int level)
+        {
+            _gl.FramebufferTexture2D(target, attachment, texTarget, texture, level);
+        }
+
+        public void DeleteFramebuffer(uint framebuffer)
+        {
+            _gl.DeleteFramebuffer(framebuffer);
+        }
+
+        public void Dispose()
+        {
+            if (!_disposed)
+            {
+                _disposed = true;
+            }
+        }
+    }
+}
 
         public void GenerateMipmap(TextureTarget target)
         {

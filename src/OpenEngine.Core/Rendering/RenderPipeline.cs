@@ -70,22 +70,22 @@ namespace OpenEngine.Core.Rendering
             return true;
         }
 
-        private void RenderShadows(Camera camera)
+        private void RenderShadows(Camera camera, Graphics.SilkOpenGLRenderer renderer)
         {
             // Render shadow maps for lights
         }
 
-        private void RenderOpaque(Camera camera, List<MeshRenderer> renderers)
+        private void RenderOpaque(Camera camera, List<MeshRenderer> renderers, Graphics.SilkOpenGLRenderer renderer)
         {
             // Render opaque geometry
         }
 
-        private void RenderTransparent(Camera camera, List<MeshRenderer> renderers)
+        private void RenderTransparent(Camera camera, List<MeshRenderer> renderers, Graphics.SilkOpenGLRenderer renderer)
         {
             // Render transparent geometry (back-to-front)
         }
 
-        private void ApplyPostProcessing(Camera camera)
+        private void ApplyPostProcessing(Camera camera, Graphics.SilkOpenGLRenderer renderer)
         {
             // Apply post-processing effects
         }

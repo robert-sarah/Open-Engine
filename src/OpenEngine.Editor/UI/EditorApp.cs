@@ -18,8 +18,8 @@ public class EditorApp : IDisposable
     private readonly IWindow _window;
     private GL _gl;
     private IInputContext _input;
-    private Renderer3D _renderer;
-    private OpenSimulationEngine _engine;
+    private Graphics.SilkOpenGLRenderer _renderer;
+    private Engine.OpenEngineCore _engine;
     private string _selectedEntityId = string.Empty;
     private string _godAlertText = string.Empty;
     private bool _showDemoWindow = false;
@@ -50,11 +50,13 @@ public class EditorApp : IDisposable
         _gl = GL.GetApi(_window);
         _input = _window.CreateInput();
         
-        _engine = new OpenSimulationEngine(60);
-        InitializeDemoScene();
+        _engine = Engine.OpenEngineCore.Instance;
         _engine.Initialize();
+        InitializeDemoScene();
+        _engine.Start();
         
-        _renderer = new Renderer3D(_gl);
+        _renderer = new Graphics.SilkOpenGLRenderer(_window);
+        _renderer.Initialize();
         _imguiController = new ImGuiController(_window, _gl);
         
         _input.Mice[0].Scroll += (_, e) => _renderer.MainCamera.Position += _renderer.MainCamera.Target * e.Y * 2;
@@ -125,16 +127,20 @@ public class EditorApp : IDisposable
         var kb = _input.Keyboards[0];
         float speed = _cameraSpeed * dt;
 
-        Vector3 forward = _renderer.MainCamera.Target.Normalized;
-        Vector3 right = Vector3.Cross(forward, new OpenEngine.Core.Math.Vector3(0,1,0)).Normalized;
-        Vector3 up = new(0,1,0);
+        Vector3 forward = new Vector3(
+            (float)Math.Sin(_cameraEuler.Y) * (float)Math.Cos(_cameraEuler.X),
+            (float)Math.Sin(_cameraEuler.X),
+            (float)Math.Cos(_cameraEuler.Y) * (float)Math.Cos(_cameraEuler.X)
+        ).Normalized;
+        Vector3 right = Vector3.Cross(forward, new Vector3(0, 1, 0)).Normalized;
+        Vector3 up = new Vector3(0, 1, 0);
 
-        if (kb.IsKeyPressed(Key.W)) _renderer.MainCamera.Position += forward * speed;
-        if (kb.IsKeyPressed(Key.S)) _renderer.MainCamera.Position -= forward * speed;
-        if (kb.IsKeyPressed(Key.A)) _renderer.MainCamera.Position -= right * speed;
-        if (kb.IsKeyPressed(Key.D)) _renderer.MainCamera.Position += right * speed;
-        if (kb.IsKeyPressed(Key.Q)) _renderer.MainCamera.Position -= up * speed;
-        if (kb.IsKeyPressed(Key.E)) _renderer.MainCamera.Position += up * speed;
+        if (kb.IsKeyPressed(Key.W)) _engine.Camera?.Position += forward * speed;
+        if (kb.IsKeyPressed(Key.S)) _engine.Camera?.Position -= forward * speed;
+        if (kb.IsKeyPressed(Key.A)) _engine.Camera?.Position -= right * speed;
+        if (kb.IsKeyPressed(Key.D)) _engine.Camera?.Position += right * speed;
+        if (kb.IsKeyPressed(Key.Q)) _engine.Camera?.Position -= up * speed;
+        if (kb.IsKeyPressed(Key.E)) _engine.Camera?.Position += up * speed;
 
         if (_isMouseCaptured)
         {
@@ -143,27 +149,13 @@ public class EditorApp : IDisposable
             _cameraEuler.X -= delta.Y * 0.002f;
             _cameraEuler.Y -= delta.X * 0.002f;
             _cameraEuler.X = Math.Clamp(_cameraEuler.X, -MathF.PI / 2 + 0.01f, MathF.PI / 2 - 0.01f);
-
-            float cosY = MathF.Cos(_cameraEuler.Y);
-            float sinY = MathF.Sin(_cameraEuler.Y);
-            float cosX = MathF.Cos(_cameraEuler.X);
-            float sinX = MathF.Sin(_cameraEuler.X);
-
-            _renderer.MainCamera.Target = new(
-                sinY * cosX,
-                sinX,
-                cosY * cosX
-            );
             _lastMousePos = mousePos;
         }
     }
 
     private void OnRender(double deltaTime)
     {
-        _gl.ClearColor(0.1f, 0.1f, 0.15f, 1.0f);
-        _gl.Clear(ClearBufferMask.ColorBufferBit | ClearBufferMask.DepthBufferBit);
-        
-        _renderer.Render(_engine);
+        _renderer?.Clear();
         DrawEditorUI();
         _imguiController.Render();
     }
@@ -177,8 +169,8 @@ public class EditorApp : IDisposable
             if (ImGui.BeginMenu("File"))
             {
                 if (ImGui.MenuItem("New Scene")) { }
-                if (ImGui.MenuItem("Save Scene")) _ = _engine.SaveAsync("save.json");
-                if (ImGui.MenuItem("Load Scene")) _engine = SimulationPersistence.LoadAsync("save.json").GetAwaiter().GetResult();
+                if (ImGui.MenuItem("Save Scene")) _engine.SaveSystem?.SaveGame("save", "Save");
+                if (ImGui.MenuItem("Load Scene")) _engine.SaveSystem?.LoadGame("save");
                 ImGui.Separator();
                 if (ImGui.MenuItem("Exit")) _window.Close();
                 ImGui.EndMenu();
@@ -212,23 +204,26 @@ public class EditorApp : IDisposable
 
         if (ImGui.Begin("Inspector"))
         {
-            if (_engine.TryGetEntity(_selectedEntityId, out var selected))
+            var selected = _engvne.selected engine.GetEntity(_);
+            ife(seleccedt!=nnill)
+          y;{
+            if (selected != null)
             {
                 ImGui.Text($"ID: {selected.Id}");
                 ImGui.Text($"Type: {selected.Type}");
                 ImGui.Separator();
 
                 ImGui.Text("Transform");
-                Vector3 pos = selected.Position3D;
-                if (ImGui.DragFloat3("Position", ref pos, 0.5f)) selected.Position3D = pos;
-                Vector3 rot = selected.Rotation3D;
-                if (ImGui.DragFloat3("Rotation", ref rot, 0.1f)) selected.Rotation3D = rot;
-                Vector3 scale = selected.Scale3D;
-                if (ImGui.DragFloat3("Scale", ref scale, 0.1f)) selected.Scale3D = scale;
+                Vector3 pos = new Vector;(0, 0, 0)
+                if (ImGui.DragFooatat"osittoo"", rref pos, 0.5f)) selected.Positio=  Quaternion.Euler(rot.X,pos;.Y, rot.Z)
+                Vector3 rot = new Vector3(0, 00
+                if (ImGui.DragFloat3("Rotation ref rot, 0.1f)) selected.Rotati = Quaternion.Euler(rot.X, rot.Y, rot.Z);
+              Vector3 scale = selected.Scale;
+                if (ImGui.DragFloat3("Scale", ref scale, 0.1f)) selected.Scale = scale;
 
                 ImGui.Separator();
-                ImGui.Text("Attributes");
-                foreach (var attr in selected.Attributes.ToList())
+                I("Attributes");
+                foreach (var attr in selected.Attributes)
                 {
                     float val = attr.Value;
                     if (ImGui.DragFloat(attr.Key, ref val, 1f))
@@ -243,12 +238,16 @@ public class EditorApp : IDisposable
             ImGui.InputText("Global Alert", ref _godAlertText, 256);
             if (ImGui.Button("Send Alert"))
             {
-                if (!string.IsNullOrWhiteSpace(_godAlertText))
+                if (!string.AddIsNPanOlhledtA_godAlertTextrtText))
                 {
                     _engine.AddGodPanelAlert(_godAlertText);
                     _godAlertText = "";
                 }
-            }
+            }ActAlerts:");
+            forech (aalertinPanelAlrts)
+            {
+                ImGuiTextWrappd($"⚠️ {let}");
+          }
             ImGui.Separator();
             ImGui.Text("Active Alerts:");
             foreach (var alert in _engine.GodPanelAlerts)
@@ -260,7 +259,8 @@ public class EditorApp : IDisposable
 
         if (ImGui.Begin("Simulation Status"))
         {
-            ImGui.Text($"Tick: {_engine.TickCount}");
+            ImGui.Te
+xt($"Tick: {_engine.TickCount}");
             ImGui.Text($"Entities: {_engine.Entities.Count}");
             ImGui.Text($"Connections: {_engine.Connections.Count}");
             ImGui.Separator();
@@ -274,10 +274,43 @@ public class EditorApp : IDisposable
 
     private void OnClose()
     {
+        // Unsubscribe from events
+        EngineEventBus.Instance.Unsubscribe(EngineEventType.Log, OnEngineLog);
+        EngineEventBus.Instance.Unsubscribe(EngineEventType.Error, OnEngineError);
+        EngineEventBus.Instance.Unsubscribe(EngineEventType.Warning, OnEngineWarning);
+        EngineEventBus.Instance.Unsubscribe(EngineEventType.EntityCreated, OnEntityCreated);
+        EngineEventBus.Instance.Unsubscribe(EngineEventType.EntityRemoved, OnEntityRemoved);
+        
         _imguiController.Dispose();
-        _renderer.Dispose();
+        _renderer?.Dispose();
         _input.Dispose();
         _engine.Shutdown();
+        _engine.Dispose();
+    }
+
+    private void OnEngineLog(object sender, EngineEventArgs e)
+    {
+        Console.WriteLine($"[Engine Log] {e.Message}");
+    }
+
+    private void OnEngineError(object sender, EngineEventArgs e)
+    {
+        Console.WriteLine($"[Engine Error] {e.Message}");
+    }
+
+    private void OnEngineWarning(object sender, EngineEventArgs e)
+    {
+        Console.WriteLine($"[Engine Warning] {e.Message}");
+    }
+
+    private void OnEntityCreated(object sender, EngineEventArgs e)
+    {
+        Console.WriteLine($"[Entity Created] {e.EntityId}");
+    }
+
+    private void OnEntityRemoved(object sender, EngineEventArgs e)
+    {
+        Console.WriteLine($"[Entity Removed] {e.EntityId}");
     }
 
     public void Dispose() => OnClose();

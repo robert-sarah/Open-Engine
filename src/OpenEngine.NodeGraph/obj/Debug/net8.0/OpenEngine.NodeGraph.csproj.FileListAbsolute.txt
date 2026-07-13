@@ -9,3 +9,4 @@ C:\Users\GENIUS ELECTRONICS\Downloads\Open Engine\src\OpenEngine.NodeGraph\obj\D
 C:\Users\GENIUS ELECTRONICS\Downloads\Open Engine\src\OpenEngine.NodeGraph\obj\Debug\net8.0\refint\OpenEngine.NodeGraph.dll
 C:\Users\GENIUS ELECTRONICS\Downloads\Open Engine\src\OpenEngine.NodeGraph\obj\Debug\net8.0\OpenEngine.NodeGraph.pdb
 C:\Users\GENIUS ELECTRONICS\Downloads\Open Engine\src\OpenEngine.NodeGraph\obj\Debug\net8.0\ref\OpenEngine.NodeGraph.dll
+c:\Users\GENIUS ELECTRONICS\Downloads\Open Engine\src\OpenEngine.NodeGraph\obj\Debug\net8.0\OpenEngine.NodeGraph.sourcelink.json
