@@ -1,0 +1,15 @@
+C:\Users\GENIUS ELECTRONICS\Downloads\Open Engine\src\OpenEngine.LLM\bin\Debug\net8.0\OpenEngine.LLM.deps.json
+C:\Users\GENIUS ELECTRONICS\Downloads\Open Engine\src\OpenEngine.LLM\bin\Debug\net8.0\OpenEngine.LLM.dll
+C:\Users\GENIUS ELECTRONICS\Downloads\Open Engine\src\OpenEngine.LLM\bin\Debug\net8.0\OpenEngine.LLM.pdb
+C:\Users\GENIUS ELECTRONICS\Downloads\Open Engine\src\OpenEngine.LLM\bin\Debug\net8.0\OpenEngine.Core.dll
+C:\Users\GENIUS ELECTRONICS\Downloads\Open Engine\src\OpenEngine.LLM\bin\Debug\net8.0\OpenEngine.Core.pdb
+C:\Users\GENIUS ELECTRONICS\Downloads\Open Engine\src\OpenEngine.LLM\obj\Debug\net8.0\OpenEngine.LLM.csproj.AssemblyReference.cache
+C:\Users\GENIUS ELECTRONICS\Downloads\Open Engine\src\OpenEngine.LLM\obj\Debug\net8.0\OpenEngine.LLM.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\GENIUS ELECTRONICS\Downloads\Open Engine\src\OpenEngine.LLM\obj\Debug\net8.0\OpenEngine.LLM.AssemblyInfoInputs.cache
+C:\Users\GENIUS ELECTRONICS\Downloads\Open Engine\src\OpenEngine.LLM\obj\Debug\net8.0\OpenEngine.LLM.AssemblyInfo.cs
+C:\Users\GENIUS ELECTRONICS\Downloads\Open Engine\src\OpenEngine.LLM\obj\Debug\net8.0\OpenEngine.LLM.csproj.CoreCompileInputs.cache
+C:\Users\GENIUS ELECTRONICS\Downloads\Open Engine\src\OpenEngine.LLM\obj\Debug\net8.0\OpenEngi.08BF6DB2.Up2Date
+C:\Users\GENIUS ELECTRONICS\Downloads\Open Engine\src\OpenEngine.LLM\obj\Debug\net8.0\OpenEngine.LLM.dll
+C:\Users\GENIUS ELECTRONICS\Downloads\Open Engine\src\OpenEngine.LLM\obj\Debug\net8.0\refint\OpenEngine.LLM.dll
+C:\Users\GENIUS ELECTRONICS\Downloads\Open Engine\src\OpenEngine.LLM\obj\Debug\net8.0\OpenEngine.LLM.pdb
+C:\Users\GENIUS ELECTRONICS\Downloads\Open Engine\src\OpenEngine.LLM\obj\Debug\net8.0\ref\OpenEngine.LLM.dll

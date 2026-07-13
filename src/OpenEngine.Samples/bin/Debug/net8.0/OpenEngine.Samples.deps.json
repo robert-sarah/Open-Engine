@@ -1,0 +1,73 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "OpenEngine.Samples/1.0.0": {
+        "dependencies": {
+          "OpenEngine.Core": "1.0.0",
+          "OpenEngine.Editor": "1.0.0",
+          "OpenEngine.LLM": "1.0.0"
+        },
+        "runtime": {
+          "OpenEngine.Samples.dll": {}
+        }
+      },
+      "OpenEngine.Core/1.0.0": {
+        "runtime": {
+          "OpenEngine.Core.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "OpenEngine.Editor/1.0.0": {
+        "dependencies": {
+          "OpenEngine.Core": "1.0.0"
+        },
+        "runtime": {
+          "OpenEngine.Editor.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "OpenEngine.LLM/1.0.0": {
+        "dependencies": {
+          "OpenEngine.Core": "1.0.0"
+        },
+        "runtime": {
+          "OpenEngine.LLM.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "OpenEngine.Samples/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "OpenEngine.Core/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "OpenEngine.Editor/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "OpenEngine.LLM/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

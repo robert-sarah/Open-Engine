@@ -1,0 +1,27 @@
+{
+  "version": 2,
+  "dgSpecHash": "tKbl6k+aE4g=",
+  "success": false,
+  "projectFilePath": "C:\\Users\\GENIUS ELECTRONICS\\Downloads\\Open Engine\\src\\OpenEngine.Editor\\OpenEngine.Editor.csproj",
+  "expectedPackageFiles": [],
+  "logs": [
+    {
+      "code": "NU1301",
+      "level": "Error",
+      "message": "Impossible d'obtenir les informations de signature du dépôt pour la source https://api.nuget.org/v3-index/repository-signatures/5.0.0/index.json.\r\n  Hôte inconnu. (api.nuget.org:443)\r\n  Hôte inconnu.",
+      "projectPath": "C:\\Users\\GENIUS ELECTRONICS\\Downloads\\Open Engine\\src\\OpenEngine.Editor\\OpenEngine.Editor.csproj",
+      "filePath": "C:\\Users\\GENIUS ELECTRONICS\\Downloads\\Open Engine\\src\\OpenEngine.Editor\\OpenEngine.Editor.csproj",
+      "libraryId": "Silk.NET.OpenGL",
+      "targetGraphs": []
+    },
+    {
+      "code": "NU1301",
+      "level": "Error",
+      "message": "Impossible d'obtenir les informations de signature du dépôt pour la source https://api.nuget.org/v3-index/repository-signatures/5.0.0/index.json.\r\n  Hôte inconnu. (api.nuget.org:443)\r\n  Hôte inconnu.",
+      "projectPath": "C:\\Users\\GENIUS ELECTRONICS\\Downloads\\Open Engine\\src\\OpenEngine.Editor\\OpenEngine.Editor.csproj",
+      "filePath": "C:\\Users\\GENIUS ELECTRONICS\\Downloads\\Open Engine\\src\\OpenEngine.Editor\\OpenEngine.Editor.csproj",
+      "libraryId": "Silk.NET",
+      "targetGraphs": []
+    }
+  ]
+}

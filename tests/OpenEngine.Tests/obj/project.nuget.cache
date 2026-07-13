@@ -1,0 +1,36 @@
+{
+  "version": 2,
+  "dgSpecHash": "iO1VEZUqlTU=",
+  "success": false,
+  "projectFilePath": "C:\\Users\\GENIUS ELECTRONICS\\Downloads\\Open Engine\\tests\\OpenEngine.Tests\\OpenEngine.Tests.csproj",
+  "expectedPackageFiles": [],
+  "logs": [
+    {
+      "code": "NU1301",
+      "level": "Error",
+      "message": "Impossible d'obtenir les informations de signature du dépôt pour la source https://api.nuget.org/v3-index/repository-signatures/5.0.0/index.json.\r\n  Hôte inconnu. (api.nuget.org:443)\r\n  Hôte inconnu.",
+      "projectPath": "C:\\Users\\GENIUS ELECTRONICS\\Downloads\\Open Engine\\tests\\OpenEngine.Tests\\OpenEngine.Tests.csproj",
+      "filePath": "C:\\Users\\GENIUS ELECTRONICS\\Downloads\\Open Engine\\tests\\OpenEngine.Tests\\OpenEngine.Tests.csproj",
+      "libraryId": "xunit",
+      "targetGraphs": []
+    },
+    {
+      "code": "NU1301",
+      "level": "Error",
+      "message": "Impossible d'obtenir les informations de signature du dépôt pour la source https://api.nuget.org/v3-index/repository-signatures/5.0.0/index.json.\r\n  Hôte inconnu. (api.nuget.org:443)\r\n  Hôte inconnu.",
+      "projectPath": "C:\\Users\\GENIUS ELECTRONICS\\Downloads\\Open Engine\\tests\\OpenEngine.Tests\\OpenEngine.Tests.csproj",
+      "filePath": "C:\\Users\\GENIUS ELECTRONICS\\Downloads\\Open Engine\\tests\\OpenEngine.Tests\\OpenEngine.Tests.csproj",
+      "libraryId": "xunit.runner.visualstudio",
+      "targetGraphs": []
+    },
+    {
+      "code": "NU1301",
+      "level": "Error",
+      "message": "Impossible d'obtenir les informations de signature du dépôt pour la source https://api.nuget.org/v3-index/repository-signatures/5.0.0/index.json.\r\n  Hôte inconnu. (api.nuget.org:443)\r\n  Hôte inconnu.",
+      "projectPath": "C:\\Users\\GENIUS ELECTRONICS\\Downloads\\Open Engine\\tests\\OpenEngine.Tests\\OpenEngine.Tests.csproj",
+      "filePath": "C:\\Users\\GENIUS ELECTRONICS\\Downloads\\Open Engine\\tests\\OpenEngine.Tests\\OpenEngine.Tests.csproj",
+      "libraryId": "Microsoft.NET.Test.Sdk",
+      "targetGraphs": []
+    }
+  ]
+}
