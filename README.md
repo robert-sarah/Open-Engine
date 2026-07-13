@@ -1025,9 +1025,9 @@ SOFTWARE.
 - **Twitter**: [@OpenEngineDev](https://twitter.com/OpenEngineDev)
 
 ### Support
-- **Issues**: [GitHub Issues](https://github.com/yourusername/Open-Engine/issues)
-- **Discussions**: [GitHub Discussions](https://github.com/yourusername/Open-Engine/discussions)
-- **Email**: support@openengine.dev
+- **Issues**: [GitHub Issues](https://github.com/robert-sarah/Open-Engine/issues)
+- **Discussions**: [GitHub Discussions](https://github.com/robert-sarah/Open-Engine/discussions)
+- **Email**: levienama@gmail.com
 
 ---
 
