@@ -248,13 +248,46 @@ namespace OpenEngine.Core.GameManager
                     break;
 
                 case "ATTACK":
-                    result.AppendLine(description);
-                    result.AppendLine("Combat mechanics would be applied here.");
+                    var targetEntity = _worldState.GetNearestEntity(entity.Position3D, 20f);
+                    if (targetEntity != null)
+                    {
+                        entity.TryGetAttribute("strength", out float strength);
+                        targetEntity.TryGetAttribute("health", out float targetHealth);
+                        
+                        float damage = strength * 2f + (float)(new Random().NextDouble() * 5f);
+                        targetEntity.AddAttribute("health", Math.Max(0f, targetHealth - damage));
+                        
+                        result.AppendLine($"You attacked {targetEntity.Name} for {damage:F1} damage.");
+                        result.AppendLine($"Target health: {Math.Max(0f, targetHealth - damage):F0}/100");
+                        
+                        if (targetHealth - damage <= 0)
+                        {
+                            result.AppendLine($"{targetEntity.Name} has been defeated!");
+                        }
+                    }
+                    else
+                    {
+                        result.AppendLine("No valid targets nearby.");
+                    }
                     break;
 
                 case "CRAFT":
-                    result.AppendLine(description);
-                    result.AppendLine("Crafting mechanics would be applied here.");
+                    entity.TryGetComponent<Dictionary<string, float>>("inventory", out var craftingInventory);
+                    if (craftingInventory != null && craftingInventory.ContainsKey("wood") && craftingInventory["wood"] >= 5f)
+                    {
+                        craftingInventory["wood"] -= 5f;
+                        result.AppendLine("You crafted a wooden tool.");
+                        result.AppendLine("Wood: -5");
+                        
+                        if (!craftingInventory.ContainsKey("tool"))
+                            craftingInventory["tool"] = 0f;
+                        craftingInventory["tool"] += 1f;
+                    }
+                    else
+                    {
+                        result.AppendLine("Not enough materials to craft.");
+                        result.AppendLine("Required: 5 wood");
+                    }
                     break;
 
                 case "GIVE":

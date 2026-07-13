@@ -18,6 +18,7 @@
 
 ## Table of Contents
 
+- [Development Status](#-development-status)
 - [Overview](#overview)
 - [Features](#features)
 - [Architecture](#architecture)
@@ -39,6 +40,8 @@
 ## Overview
 
 **Open Engine** is a modern, high-performance game engine built with C# and .NET 8.0, designed for creating immersive simulation games with advanced AI, realistic physics, and cutting-edge graphics. The engine features a modular architecture with multithreaded systems, cross-platform support, and a powerful editor for rapid development.
+
+**This project is currently in active development and serves as a proof-of-concept for advanced game engine architecture.**
 
 ### Key Highlights
 
@@ -913,26 +916,26 @@ void OnCollision(object sender, EngineEventArgs e)
 
 ## Roadmap
 
-### Version 1.1 (Q1 2025)
-- [ ] Enhanced particle system with GPU compute
+### Current Focus (2026)
+- [ ] Complete Vulkan rendering backend
+- [ ] Complete Metal rendering backend
 - [ ] Advanced animation blending
 - [ ] Improved networking with prediction
-- [ ] Visual scripting editor
-- [ ] Asset pipeline improvements
+- [ ] Enhanced particle system with GPU compute
+- [ ] Complete gameplay mechanics
+- [ ] Comprehensive testing and bug fixes
 
-### Version 1.2 (Q2 2025)
-- [ ] VR/AR support
-- [ ] Procedural generation tools
-- [ ] Advanced AI with machine learning
-- [ ] Multi-platform mobile support
-- [ ] Cloud save system
-
-### Version 2.0 (Q4 2025)
+### Future Plans
 - [ ] ECS (Entity Component System) architecture
 - [ ] Data-driven game design
 - [ ] Advanced graphics (ray tracing, DLSS)
+- [ ] VR/AR support
+- [ ] Multi-platform mobile support
+- [ ] Cloud save system
 - [ ] Collaborative editing
-- [ ] Marketplace for assets and plugins
+- [ ] Asset marketplace
+
+**Note:** Roadmap is subject to change as development priorities evolve.
 
 ---
 

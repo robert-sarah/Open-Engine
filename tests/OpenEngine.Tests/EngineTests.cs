@@ -39,8 +39,10 @@ public class EngineTests
     {
         var engine = new OpenSimulationEngine();
         var center = new Vector3(0, 0, 0);
-        engine.CreateEntity("Near", "X") { Position3D = new(5, 0, 0) };
-        engine.CreateEntity("Far", "X") { Position3D = new(15, 0, 0) };
+        var near = engine.CreateEntity("Near", "X");
+        near.Position3D = new Vector3(5, 0, 0);
+        var far = engine.CreateEntity("Far", "X");
+        far.Position3D = new Vector3(15, 0, 0);
         
         var inRadius = engine.GetEntitiesInRadius(center, 10);
         Assert.Single(inRadius);

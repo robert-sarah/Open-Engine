@@ -105,6 +105,7 @@ namespace OpenEngine.Core.Engine
         public OpenGLBindings NativeOpenGL => _nativeOpenGL;
         public VulkanBindings NativeVulkan => _nativeVulkan;
         public MetalBindings NativeMetal => _nativeMetal;
+        public AssetManager Assets => _assetManager;
 
         private OpenEngineCore()
         {
@@ -123,7 +124,10 @@ namespace OpenEngine.Core.Engine
             
             // Initialize threading
             _threadManager = ThreadManager.Instance;
+            Initialize asset manager
+            _assetManager = AssetManager.Instance;
             
+            // 
             // Start background threads
             _threadManager.StartPhysicsThread(1f / 60f, PhysicsUpdateThread);
             _threadManager.StartAudioThread(AudioUpdateThread);

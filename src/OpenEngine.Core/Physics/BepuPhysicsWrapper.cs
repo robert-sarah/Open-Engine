@@ -138,7 +138,7 @@ namespace OpenEngine.Core.Physics
             return true;
         }
 
-        public void ConfiguraContactManager(int workerIndex, CollidablePair pair, int childIndexA, int childIndexB, ref float speculativeMargin, out PairMaterialProperties pairMaterial)
+        public void ConfigureContactManager(int workerIndex, CollidablePair pair, int childIndexA, int childIndexB, ref float speculativeMargin, out PairMaterialProperties pairMaterial)
         {
             pairMaterial = new PairMaterialProperties { FrictionCoefficient = 0.5f, MaximumRecoveryVelocity = 2f, MinimumRecoveryVelocity = 0.1f, SpringSettings = new SpringSettings(30, 1) };
         }

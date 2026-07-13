@@ -87,8 +87,28 @@ namespace OpenEngine.Core.Animation
 
         public void Update(float deltaTime)
         {
+            // Update current state animation time
+            foreach (var state in States)
+            {
+                state.Update(deltaTime);
+            }
+            
             // Evaluate transitions and update current state
             EvaluateTransitions();
+        }
+
+        public AnimatorState GetCurrentState()
+        {
+            return States.Count > 0 ? States[0] : null;
+        }
+
+        public void SetState(string stateName)
+        {
+            var state = States.Find(s => s.Name == stateName);
+            if (state != null)
+            {
+                state.Reset();
+            }
         }
 
         private void EvaluateTransitions()
@@ -192,6 +212,34 @@ namespace OpenEngine.Core.Animation
         public float Weight { get; set; }
         public int StateMachineIndex { get; set; }
 
+        public AnimatorLayer()
+        {
+            Weight = 1f;
+            StateMachineIndex = 0;
+        }
+    }
+
+    public class AvatarMask
+    {
+        public string Name { get; set; }
+        public Dictionary<string, bool> BoneMasks { get; set; }
+
+        public AvatarMask()
+        {
+            BoneMasks = new Dictionary<string, bool>();
+        }
+
+        public void SetBoneActive(string boneName, bool active)
+        {
+            BoneMasks[boneName] = active;
+        }
+
+        public bool IsBoneActive(string boneName)
+        {
+            return BoneMasks.ContainsKey(boneName) ? BoneMasks[boneName] : true;
+        }
+    }
+}
         public AnimatorLayer()
         {
             Weight = 1f;
