@@ -1,10 +1,12 @@
 // Created By Levi Enama
+// Script Compiler using Roslyn for .NET 8
 using System;
-using System.CodeDom.Compiler;
 using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
-using Microsoft.CSharp;
+using System.Linq;
+using Microsoft.CodeAnalysis;
+using Microsoft.CodeAnalysis.CSharp;
 
 namespace OpenEngine.Core.Scripting
 {
@@ -12,25 +14,21 @@ namespace OpenEngine.Core.Scripting
     {
         private List<string> _references;
         private List<string> _sourceFiles;
-        private CompilerParameters _compilerParameters;
+        private CSharpCompilationOptions _compilerOptions;
 
         public ScriptCompiler()
         {
             _references = new List<string>
             {
-                "System.dll",
-                "System.Core.dll",
-                "Microsoft.CSharp.dll",
-                "mscorlib.dll"
+                typeof(object).Assembly.Location,
+                typeof(System.Linq.Enumerable).Assembly.Location,
+                typeof(System.Collections.Generic.List<>).Assembly.Location
             };
 
             _sourceFiles = new List<string>();
-            _compilerParameters = new CompilerParameters
-            {
-                GenerateExecutable = false,
-                GenerateInMemory = true,
-                TreatWarningsAsErrors = false
-            };
+            _compilerOptions = new CSharpCompilationOptions(OutputKind.DynamicallyLinkedLibrary)
+                .WithOptimizationLevel(OptimizationLevel.Release)
+                .WithAllowUnsafe(true);
 
             // Add OpenEngine.Core reference
             var coreAssembly = Assembly.GetExecutingAssembly().Location;
@@ -65,22 +63,52 @@ namespace OpenEngine.Core.Scripting
 
         public CompilationResult Compile()
         {
-            var provider = new CSharpCodeProvider();
-            _compilerParameters.ReferencedAssemblies.Clear();
-            _compilerParameters.ReferencedAssemblies.AddRange(_references.ToArray());
+            var syntaxTrees = new List<SyntaxTree>();
+            
+            foreach (var sourceFile in _sourceFiles)
+            {
+                if (File.Exists(sourceFile))
+                {
+                    var sourceCode = File.ReadAllText(sourceFile);
+                    syntaxTrees.Add(CSharpSyntaxTree.ParseText(sourceCode));
+                }
+            }
 
-            var results = provider.CompileAssemblyFromFile(_compilerParameters, _sourceFiles.ToArray());
+            var metadataReferences = _references
+                .Where(r => File.Exists(r))
+                .Select(r => MetadataReference.CreateFromFile(r))
+                .ToList();
+
+            var compilation = CSharpCompilation.Create(
+                "DynamicScriptAssembly",
+                syntaxTrees,
+                metadataReferences,
+                _compilerOptions
+            );
+
+            using var ms = new MemoryStream();
+            var result = compilation.Emit(ms);
 
             var compilationResult = new CompilationResult
             {
-                Success = results.Errors.Count == 0,
-                CompiledAssembly = results.CompiledAssembly,
+                Success = result.Success,
                 Errors = new List<string>()
             };
 
-            foreach (CompilerError error in results.Errors)
+            if (result.Success)
             {
-                compilationResult.Errors.Add($"Line {error.Line}: {error.ErrorText}");
+                ms.Seek(0, SeekOrigin.Begin);
+                compilationResult.CompiledAssembly = Assembly.Load(ms.ToArray());
+            }
+            else
+            {
+                foreach (var diagnostic in result.Diagnostics)
+                {
+                    if (diagnostic.Severity == DiagnosticSeverity.Error)
+                    {
+                        compilationResult.Errors.Add($"Line {diagnostic.Location.GetLineSpan().StartLinePosition.Line + 1}: {diagnostic.GetMessage()}");
+                    }
+                }
             }
 
             return compilationResult;

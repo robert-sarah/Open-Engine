@@ -133,25 +133,14 @@ namespace OpenEngine.Core.Physics
             return true;
         }
 
-        public bool AllowContactGeneration(int workerIndex, CollidablePair pair, int childIndexA, int childIndexB, float speculativeMargin)
-        {
-            return true;
-        }
-
-        public void ConfigureContactManager(int workerIndex, CollidablePair pair, int childIndexA, int childIndexB, ref float speculativeMargin, out PairMaterialProperties pairMaterial)
-        {
-            pairMaterial = new PairMaterialProperties { FrictionCoefficient = 0.5f, MaximumRecoveryVelocity = 2f, MinimumRecoveryVelocity = 0.1f, SpringSettings = new SpringSettings(30, 1) };
-        }
-
-        public bool ConfigureContactManifold(int workerIndex, CollidablePair pair, int childIndexA, int childIndexB, ref ConvexContactManifold manifold)
-        {
-            return true;
-        }
-
-        public bool ConfigureContactManifold(int workerIndex, CollidablePair pair, int childIndexA, int childIndexB, ref ConvexContactManifold manifold, out PairMaterialProperties pairMaterial)
+        public bool ConfigureContactManifold<TManifold>(int workerIndex, CollidablePair pair, int childIndexA, int childIndexB, ref TManifold manifold, out PairMaterialProperties pairMaterial) where TManifold : unmanaged, IContactManifold<TManifold>
         {
             pairMaterial = new PairMaterialProperties { FrictionCoefficient = 0.5f, MaximumRecoveryVelocity = 2f, MinimumRecoveryVelocity = 0.1f, SpringSettings = new SpringSettings(30, 1) };
             return true;
+        }
+
+        public void Dispose()
+        {
         }
     }
 

@@ -3,7 +3,9 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
+using System.Net.Http;
 using System.Text;
+using System.Text.Json;
 using System.Threading.Tasks;
 
 namespace OpenEngine.LLM.Providers
@@ -16,12 +18,16 @@ namespace OpenEngine.LLM.Providers
         private bool _isInitialized;
         private readonly string _modelPath;
         private readonly string _executablePath;
+        private readonly string _serverUrl;
         private Process _serverProcess;
+        private readonly HttpClient _httpClient;
 
-        public LlamaCppProvider(string modelPath, string executablePath = "llama-server")
+        public LlamaCppProvider(string modelPath, string executablePath = "llama-server", string serverUrl = "http://localhost:8080")
         {
             _modelPath = modelPath;
             _executablePath = executablePath;
+            _serverUrl = serverUrl;
+            _httpClient = new HttpClient { Timeout = TimeSpan.FromSeconds(30) };
         }
 
         public async Task InitializeAsync()
@@ -48,7 +54,7 @@ namespace OpenEngine.LLM.Providers
                 };
 
                 _serverProcess = Process.Start(startInfo);
-                await Task.Delay(2000);
+                await Task.Delay(3000); // Wait for server to start
 
                 _isInitialized = _serverProcess != null && !_serverProcess.HasExited;
             }
@@ -78,17 +84,28 @@ namespace OpenEngine.LLM.Providers
                         maxTokens = Convert.ToInt32(modelSettings["max_tokens"]);
                 }
 
-                var mockResponse = new StringBuilder();
-                mockResponse.AppendLine("Based on your context, I recommend the following action:");
-                mockResponse.AppendLine();
-                mockResponse.AppendLine("1. Assess the immediate threat level");
-                mockResponse.AppendLine("2. Move to a safer location if necessary");
-                mockResponse.AppendLine("3. Gather more intelligence about the situation");
-                mockResponse.AppendLine();
-                mockResponse.AppendLine("Please choose your next action carefully.");
+                var requestBody = new
+                {
+                    prompt = prompt,
+                    n_predict = maxTokens,
+                    temperature = temperature,
+                    stream = false
+                };
 
-                await Task.Delay(100);
-                return mockResponse.ToString();
+                var jsonContent = JsonSerializer.Serialize(requestBody);
+                var content = new StringContent(jsonContent, Encoding.UTF8, "application/json");
+
+                var response = await _httpClient.PostAsync($"{_serverUrl}/completion", content);
+                
+                if (!response.IsSuccessStatusCode)
+                {
+                    return $"Error: Server returned {response.StatusCode}";
+                }
+
+                var responseJson = await response.Content.ReadAsStringAsync();
+                var result = JsonSerializer.Deserialize<LlamaCppResponse>(responseJson);
+                
+                return result?.content ?? "No response generated";
             }
             catch (Exception ex)
             {
@@ -112,7 +129,16 @@ namespace OpenEngine.LLM.Providers
                 _serverProcess?.Dispose();
                 _serverProcess = null;
                 _isInitialized = false;
+                _httpClient?.Dispose();
             }
+        }
+
+        private class LlamaCppResponse
+        {
+            public string content { get; set; }
+            public string stop { get; set; }
+            public int tokens_predicted { get; set; }
+            public int tokens_evaluated { get; set; }
         }
     }
 }
