@@ -1,0 +1,12 @@
+C:\Users\GENIUS ELECTRONICS\Downloads\Open Engine\src\OpenEngine.NodeGraph\bin\Debug\net8.0\OpenEngine.NodeGraph.deps.json
+C:\Users\GENIUS ELECTRONICS\Downloads\Open Engine\src\OpenEngine.NodeGraph\bin\Debug\net8.0\OpenEngine.NodeGraph.dll
+C:\Users\GENIUS ELECTRONICS\Downloads\Open Engine\src\OpenEngine.NodeGraph\bin\Debug\net8.0\OpenEngine.NodeGraph.pdb
+C:\Users\GENIUS ELECTRONICS\Downloads\Open Engine\src\OpenEngine.NodeGraph\obj\Debug\net8.0\OpenEngine.NodeGraph.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\GENIUS ELECTRONICS\Downloads\Open Engine\src\OpenEngine.NodeGraph\obj\Debug\net8.0\OpenEngine.NodeGraph.AssemblyInfoInputs.cache
+C:\Users\GENIUS ELECTRONICS\Downloads\Open Engine\src\OpenEngine.NodeGraph\obj\Debug\net8.0\OpenEngine.NodeGraph.AssemblyInfo.cs
+C:\Users\GENIUS ELECTRONICS\Downloads\Open Engine\src\OpenEngine.NodeGraph\obj\Debug\net8.0\OpenEngine.NodeGraph.csproj.CoreCompileInputs.cache
+C:\Users\GENIUS ELECTRONICS\Downloads\Open Engine\src\OpenEngine.NodeGraph\obj\Debug\net8.0\OpenEngine.NodeGraph.sourcelink.json
+C:\Users\GENIUS ELECTRONICS\Downloads\Open Engine\src\OpenEngine.NodeGraph\obj\Debug\net8.0\OpenEngine.NodeGraph.dll
+C:\Users\GENIUS ELECTRONICS\Downloads\Open Engine\src\OpenEngine.NodeGraph\obj\Debug\net8.0\refint\OpenEngine.NodeGraph.dll
+C:\Users\GENIUS ELECTRONICS\Downloads\Open Engine\src\OpenEngine.NodeGraph\obj\Debug\net8.0\OpenEngine.NodeGraph.pdb
+C:\Users\GENIUS ELECTRONICS\Downloads\Open Engine\src\OpenEngine.NodeGraph\obj\Debug\net8.0\ref\OpenEngine.NodeGraph.dll

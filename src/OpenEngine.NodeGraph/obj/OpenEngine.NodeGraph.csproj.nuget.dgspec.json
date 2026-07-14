@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\GENIUS ELECTRONICS\\Downloads\\Open Engine\\src\\OpenEngine.NodeGraph\\OpenEngine.NodeGraph.csproj": {}
+    "C:\\Users\\GENIUS ELECTRONICS\\Downloads\\Open engine\\src\\OpenEngine.NodeGraph\\OpenEngine.NodeGraph.csproj": {}
   },
   "projects": {
-    "C:\\Users\\GENIUS ELECTRONICS\\Downloads\\Open Engine\\src\\OpenEngine.NodeGraph\\OpenEngine.NodeGraph.csproj": {
+    "C:\\Users\\GENIUS ELECTRONICS\\Downloads\\Open engine\\src\\OpenEngine.NodeGraph\\OpenEngine.NodeGraph.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\GENIUS ELECTRONICS\\Downloads\\Open Engine\\src\\OpenEngine.NodeGraph\\OpenEngine.NodeGraph.csproj",
+        "projectUniqueName": "C:\\Users\\GENIUS ELECTRONICS\\Downloads\\Open engine\\src\\OpenEngine.NodeGraph\\OpenEngine.NodeGraph.csproj",
         "projectName": "OpenEngine.NodeGraph",
-        "projectPath": "C:\\Users\\GENIUS ELECTRONICS\\Downloads\\Open Engine\\src\\OpenEngine.NodeGraph\\OpenEngine.NodeGraph.csproj",
-        "packagesPath": "C:\\Users\\GENIUS ELECTRONICS\\Downloads\\Open Engine\\packages",
-        "outputPath": "C:\\Users\\GENIUS ELECTRONICS\\Downloads\\Open Engine\\src\\OpenEngine.NodeGraph\\obj\\",
+        "projectPath": "C:\\Users\\GENIUS ELECTRONICS\\Downloads\\Open engine\\src\\OpenEngine.NodeGraph\\OpenEngine.NodeGraph.csproj",
+        "packagesPath": "C:\\Users\\GENIUS ELECTRONICS\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\GENIUS ELECTRONICS\\Downloads\\Open engine\\src\\OpenEngine.NodeGraph\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
