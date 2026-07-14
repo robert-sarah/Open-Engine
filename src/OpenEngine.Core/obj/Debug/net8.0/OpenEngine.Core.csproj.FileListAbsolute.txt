@@ -1,0 +1,6 @@
+C:\Users\GENIUS ELECTRONICS\Downloads\Open engine\src\OpenEngine.Core\obj\Debug\net8.0\OpenEngine.Core.csproj.AssemblyReference.cache
+C:\Users\GENIUS ELECTRONICS\Downloads\Open engine\src\OpenEngine.Core\obj\Debug\net8.0\OpenEngine.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\GENIUS ELECTRONICS\Downloads\Open engine\src\OpenEngine.Core\obj\Debug\net8.0\OpenEngine.Core.AssemblyInfoInputs.cache
+C:\Users\GENIUS ELECTRONICS\Downloads\Open engine\src\OpenEngine.Core\obj\Debug\net8.0\OpenEngine.Core.AssemblyInfo.cs
+C:\Users\GENIUS ELECTRONICS\Downloads\Open engine\src\OpenEngine.Core\obj\Debug\net8.0\OpenEngine.Core.csproj.CoreCompileInputs.cache
+C:\Users\GENIUS ELECTRONICS\Downloads\Open engine\src\OpenEngine.Core\obj\Debug\net8.0\OpenEngine.Core.sourcelink.json
