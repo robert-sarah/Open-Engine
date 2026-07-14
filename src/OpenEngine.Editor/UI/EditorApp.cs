@@ -204,9 +204,7 @@ public class EditorApp : IDisposable
 
         if (ImGui.Begin("Inspector"))
         {
-            var selected = _engvne.selected engine.GetEntity(_);
-            ife(seleccedt!=nnill)
-          y;{
+            var selected = _selectedEntityId != null ? _engine.GetEntity(_selectedEntityId) : null;
             if (selected != null)
             {
                 ImGui.Text($"ID: {selected.Id}");
@@ -214,15 +212,17 @@ public class EditorApp : IDisposable
                 ImGui.Separator();
 
                 ImGui.Text("Transform");
-                Vector3 pos = new Vector;(0, 0, 0)
-                if (ImGui.DragFooatat"osittoo"", rref pos, 0.5f)) selected.Positio=  Quaternion.Euler(rot.X,pos;.Y, rot.Z)
-                Vector3 rot = new Vector3(0, 00
-                if (ImGui.DragFloat3("Rotation ref rot, 0.1f)) selected.Rotati = Quaternion.Euler(rot.X, rot.Y, rot.Z);
-              Vector3 scale = selected.Scale;
+                Vector3 pos = selected.Position3D;
+                if (ImGui.DragFloat3("Position", ref pos, 0.5f)) selected.Position3D = pos;
+
+                Vector3 rot = selected.Rotation;
+                if (ImGui.DragFloat3("Rotation", ref rot, 0.1f)) selected.Rotation = rot;
+
+                Vector3 scale = selected.Scale;
                 if (ImGui.DragFloat3("Scale", ref scale, 0.1f)) selected.Scale = scale;
 
                 ImGui.Separator();
-                I("Attributes");
+                ImGui.Text("Attributes");
                 foreach (var attr in selected.Attributes)
                 {
                     float val = attr.Value;
@@ -236,18 +236,11 @@ public class EditorApp : IDisposable
         if (ImGui.Begin("God Panel Console"))
         {
             ImGui.InputText("Global Alert", ref _godAlertText, 256);
-            if (ImGui.Button("Send Alert"))
+            if (ImGui.Button("Send Alert") && !string.IsNullOrEmpty(_godAlertText))
             {
-                if (!string.AddIsNPanOlhledtA_godAlertTextrtText))
-                {
-                    _engine.AddGodPanelAlert(_godAlertText);
-                    _godAlertText = "";
-                }
-            }ActAlerts:");
-            forech (aalertinPanelAlrts)
-            {
-                ImGuiTextWrappd($"⚠️ {let}");
-          }
+                _engine.AddGodPanelAlert(_godAlertText);
+                _godAlertText = "";
+            }
             ImGui.Separator();
             ImGui.Text("Active Alerts:");
             foreach (var alert in _engine.GodPanelAlerts)

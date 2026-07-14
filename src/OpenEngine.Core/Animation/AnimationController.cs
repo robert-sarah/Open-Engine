@@ -240,31 +240,3 @@ namespace OpenEngine.Core.Animation
         }
     }
 }
-        public AnimatorLayer()
-        {
-            Weight = 1f;
-            StateMachineIndex = 0;
-        }
-    }
-
-    public class AvatarMask
-    {
-        public string Name { get; set; }
-        public Dictionary<string, bool> BoneMasks { get; set; }
-
-        public AvatarMask()
-        {
-            BoneMasks = new Dictionary<string, bool>();
-        }
-
-        public void SetBoneActive(string boneName, bool active)
-        {
-            BoneMasks[boneName] = active;
-        }
-
-        public bool IsBoneActive(string boneName)
-        {
-            return BoneMasks.ContainsKey(boneName) ? BoneMasks[boneName] : true;
-        }
-    }
-}

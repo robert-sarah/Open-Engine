@@ -1,11 +1,12 @@
 // Created By Levi Enama
 using System;
 using System.Collections.Generic;
-using System.CodeDom;
-using System.CodeDom.Compiler;
-using Microsoft.CSharp;
 using System.Reflection;
 using System.Text;
+using System.Linq;
+using Microsoft.CodeAnalysis;
+using Microsoft.CodeAnalysis.CSharp;
+using OpenEngine.Core.Scripting;
 
 namespace OpenEngine.Editor.Panels
 {
@@ -98,33 +99,19 @@ namespace OpenEngine.Editor.Panels
         {
             try
             {
-                var provider = new CSharpCodeProvider();
-                var parameters = new CompilerParameters
-                {
-                    GenerateExecutable = false,
-                    GenerateInMemory = true,
-                    TreatWarningsAsErrors = false
-                };
-
-                // Add references
-                parameters.ReferencedAssemblies.Add("System.dll");
-                parameters.ReferencedAssemblies.Add("System.Core.dll");
-                parameters.ReferencedAssemblies.Add(Assembly.GetExecutingAssembly().Location);
-
+                var compiler = new ScriptCompiler();
+                compiler.AddReference(Assembly.GetExecutingAssembly().Location);
+                
                 var script = GenerateFullScript();
-                var results = provider.CompileAssemblyFromSource(parameters, script);
+                var result = compiler.CreateType(script, ClassName, Namespace);
 
-                if (results.Errors.Count > 0)
+                if (result == null)
                 {
-                    foreach (CompilerError error in results.Errors)
-                    {
-                        Console.WriteLine($"Compilation Error: Line {error.Line} - {error.ErrorText}");
-                    }
+                    Console.WriteLine("Compilation failed");
                     return false;
                 }
 
-                CompiledAssembly = results.CompiledAssembly;
-                CompiledType = CompiledAssembly.GetType($"{Namespace}.{ClassName}");
+                CompiledType = result;
                 CompiledInstance = Activator.CreateInstance(CompiledType);
                 IsCompiled = true;
 
