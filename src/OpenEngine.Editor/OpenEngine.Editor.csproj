@@ -2,6 +2,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\OpenEngine.Core\OpenEngine.Core.csproj" />
+    <ProjectReference Include="..\OpenEngine.NodeGraph\OpenEngine.NodeGraph.csproj" />
   </ItemGroup>
 
   <ItemGroup>
@@ -11,10 +12,11 @@
     <PackageReference Include="Silk.NET.Input" Version="2.21.0" />
     <PackageReference Include="ImGui.NET" Version="1.90.1.1" />
     <PackageReference Include="Silk.NET.OpenGL.Extensions.ImGui" Version="2.21.0" />
+    <PackageReference Include="BepuPhysics" Version="2.4.0" />
   </ItemGroup>
 
   <PropertyGroup>
-    <OutputType>Library</OutputType>
+    <OutputType>WinExe</OutputType>
     <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
