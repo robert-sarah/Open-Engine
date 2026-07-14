@@ -193,7 +193,7 @@ namespace OpenEngine.Core.Engine
             _audio?.Update();
             _inputSystem?.Update();
             _cameraController?.Update(deltaTime);
-            _cinemachine?.Update(deltaTime, Vector3.Zero, Quaternion.Identity);
+            _cinemachine?.Update(deltaTime, Math.Vector3.Zero, Quaternion.Identity);
             _weatherSystem?.Update(deltaTime);
             _dayNightCycle?.Update(deltaTime);
             _resourceManager?.Update(deltaTime);

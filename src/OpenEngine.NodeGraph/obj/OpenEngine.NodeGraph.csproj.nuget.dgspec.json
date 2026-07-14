@@ -10,7 +10,7 @@
         "projectUniqueName": "C:\\Users\\GENIUS ELECTRONICS\\Downloads\\Open Engine\\src\\OpenEngine.NodeGraph\\OpenEngine.NodeGraph.csproj",
         "projectName": "OpenEngine.NodeGraph",
         "projectPath": "C:\\Users\\GENIUS ELECTRONICS\\Downloads\\Open Engine\\src\\OpenEngine.NodeGraph\\OpenEngine.NodeGraph.csproj",
-        "packagesPath": "C:\\Users\\GENIUS ELECTRONICS\\.nuget\\packages\\",
+        "packagesPath": "C:\\Users\\GENIUS ELECTRONICS\\Downloads\\Open Engine\\packages",
         "outputPath": "C:\\Users\\GENIUS ELECTRONICS\\Downloads\\Open Engine\\src\\OpenEngine.NodeGraph\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [

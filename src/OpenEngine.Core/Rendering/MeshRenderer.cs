@@ -105,34 +105,4 @@ namespace OpenEngine.Core.Rendering
     }
 
     public enum MotionVectorGenerationMode { Camera, Object, ForceNoMotionVectors }
-
-    public struct Bounds
-    {
-        public Vector3 Center;
-        public Vector3 Size;
-
-        public Bounds(Vector3 center, Vector3 size)
-        {
-            Center = center;
-            Size = size;
-        }
-
-        public bool Contains(Vector3 point)
-        {
-            var halfSize = Size * 0.5f;
-            var min = Center - halfSize;
-            var max = Center + halfSize;
-            return point.X >= min.X && point.X <= max.X &&
-                   point.Y >= min.Y && point.Y <= max.Y &&
-                   point.Z >= min.Z && point.Z <= max.Z;
-        }
-    }
-
-    public struct Vector2
-    {
-        public float X, Y;
-        public Vector2(float x, float y) { X = x; Y = y; }
-        public static Vector2 Zero => new Vector2(0, 0);
-        public static Vector2 One => new Vector2(1, 1);
-    }
 }

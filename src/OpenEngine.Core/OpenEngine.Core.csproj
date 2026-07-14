@@ -14,8 +14,8 @@
     <PackageReference Include="Silk.NET.OpenGL" Version="2.18.0" />
     <PackageReference Include="Silk.NET.Vulkan" Version="2.18.0" />
     <PackageReference Include="BepuPhysics" Version="2.4.0" />
-    <PackageReference Include="SoLoud" Version="1.0.0" />
-    <PackageReference Include="SharpGLTF" Version="1.0.0" />
+    <PackageReference Include="SoLoudInterop" Version="1.0.0" />
+    <PackageReference Include="SharpGLTF.Toolkit" Version="1.0.6" />
   </ItemGroup>
 
 </Project>

@@ -12,6 +12,7 @@ namespace OpenEngine.Core.Rendering
     public class Light
     {
         public string Name { get; set; }
+        public string EntityId { get; set; }
         public LightType Type { get; set; }
         public Color Color { get; set; }
         public float Intensity { get; set; }
@@ -21,10 +22,12 @@ namespace OpenEngine.Core.Rendering
         public ShadowType Shadows { get; set; }
         public LightMode Mode { get; set; }
         public bool CastShadows { get; set; }
+        public float ShadowStrength { get; set; }
         public float ShadowBias { get; set; }
         public float ShadowNormalBias { get; set; }
         public float ShadowNearPlane { get; set; }
         public int CookieSize { get; set; }
+        public bool BakeShadows { get; set; }
         public Vector3 Position { get; set; }
         public Quaternion Rotation { get; set; }
 
@@ -39,12 +42,19 @@ namespace OpenEngine.Core.Rendering
             Shadows = ShadowType.Soft;
             Mode = LightMode.Realtime;
             CastShadows = true;
+            ShadowStrength = 1f;
             ShadowBias = 0.05f;
             ShadowNormalBias = 0.4f;
             ShadowNearPlane = 0.2f;
             CookieSize = 512;
+            BakeShadows = false;
             Position = Vector3.Zero;
             Rotation = Quaternion.Identity;
+        }
+
+        public Light(string entityId) : this()
+        {
+            EntityId = entityId ?? throw new ArgumentNullException(nameof(entityId));
         }
 
         public Vector3 GetDirection()
@@ -116,14 +126,12 @@ namespace OpenEngine.Core.Rendering
 
         public void UpdateSunPosition(float timeOfDay)
         {
-            // timeOfDay: 0 = midnight, 0.5 = noon, 1 = midnight
             float angle = (timeOfDay - 0.25f) * 360f;
             _sunLight.Rotation = Quaternion.Euler(angle, 0f, 0f);
 
-            // Adjust color based on time (sunrise/sunset)
             if (timeOfDay < 0.25f || timeOfDay > 0.75f)
             {
-                _sunLight.Color = new Color(1f, 0.6f, 0.4f, 1f); // Orange/red
+                _sunLight.Color = new Color(1f, 0.6f, 0.4f, 1f);
                 _sunLight.Intensity = 0.3f;
             }
             else if (timeOfDay > 0.3f && timeOfDay < 0.7f)
