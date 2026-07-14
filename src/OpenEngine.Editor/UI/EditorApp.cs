@@ -1,6 +1,5 @@
 // Created By Levi Enama
 using System;
-using System.Numerics;
 using Silk.NET.OpenGL;
 using Silk.NET.Windowing;
 using Silk.NET.Input;
@@ -50,10 +49,9 @@ public class EditorApp : IDisposable
         _gl = GL.GetApi(_window);
         _input = _window.CreateInput();
         
-        _engine = Engine.OpenEngineCore.Instance;
+        _engine = new OpenSimulationEngine();
         _engine.Initialize();
         InitializeDemoScene();
-        _engine.Start();
         
         _renderer = new Graphics.SilkOpenGLRenderer(_window);
         _renderer.Initialize();
@@ -135,12 +133,13 @@ public class EditorApp : IDisposable
         Vector3 right = Vector3.Cross(forward, new Vector3(0, 1, 0)).Normalized;
         Vector3 up = new Vector3(0, 1, 0);
 
-        if (kb.IsKeyPressed(Key.W)) _engine.Camera?.Position += forward * speed;
-        if (kb.IsKeyPressed(Key.S)) _engine.Camera?.Position -= forward * speed;
-        if (kb.IsKeyPressed(Key.A)) _engine.Camera?.Position -= right * speed;
-        if (kb.IsKeyPressed(Key.D)) _engine.Camera?.Position += right * speed;
-        if (kb.IsKeyPressed(Key.Q)) _engine.Camera?.Position -= up * speed;
-        if (kb.IsKeyPressed(Key.E)) _engine.Camera?.Position += up * speed;
+        // Camera movement disabled - OpenSimulationEngine doesn't have Camera property
+        // if (kb.IsKeyPressed(Key.W)) _engine.Camera?.Position += forward * speed;
+        // if (kb.IsKeyPressed(Key.S)) _engine.Camera?.Position -= forward * speed;
+        // if (kb.IsKeyPressed(Key.A)) _engine.Camera?.Position -= right * speed;
+        // if (kb.IsKeyPressed(Key.D)) _engine.Camera?.Position += right * speed;
+        // if (kb.IsKeyPressed(Key.Q)) _engine.Camera?.Position -= up * speed;
+        // if (kb.IsKeyPressed(Key.E)) _engine.Camera?.Position += up * speed;
 
         if (_isMouseCaptured)
         {
@@ -169,8 +168,9 @@ public class EditorApp : IDisposable
             if (ImGui.BeginMenu("File"))
             {
                 if (ImGui.MenuItem("New Scene")) { }
-                if (ImGui.MenuItem("Save Scene")) _engine.SaveSystem?.SaveGame("save", "Save");
-                if (ImGui.MenuItem("Load Scene")) _engine.SaveSystem?.LoadGame("save");
+                // SaveSystem not available on OpenSimulationEngine - disabled
+                // if (ImGui.MenuItem("Save Scene")) _engine.SaveSystem?.SaveGame("save", "Save");
+                // if (ImGui.MenuItem("Load Scene")) _engine.SaveSystem?.LoadGame("save");
                 ImGui.Separator();
                 if (ImGui.MenuItem("Exit")) _window.Close();
                 ImGui.EndMenu();
@@ -213,13 +213,25 @@ public class EditorApp : IDisposable
 
                 ImGui.Text("Transform");
                 Vector3 pos = selected.Position3D;
-                if (ImGui.DragFloat3("Position", ref pos, 0.5f)) selected.Position3D = pos;
+                var posNumerics = new System.Numerics.Vector3(pos.X, pos.Y, pos.Z);
+                if (ImGui.DragFloat3("Position", ref posNumerics, 0.5f))
+                {
+                    selected.Position3D = new Vector3(posNumerics.X, posNumerics.Y, posNumerics.Z);
+                }
 
                 Vector3 rot = selected.Rotation;
-                if (ImGui.DragFloat3("Rotation", ref rot, 0.1f)) selected.Rotation = rot;
+                var rotNumerics = new System.Numerics.Vector3(rot.X, rot.Y, rot.Z);
+                if (ImGui.DragFloat3("Rotation", ref rotNumerics, 0.1f))
+                {
+                    selected.Rotation = new Vector3(rotNumerics.X, rotNumerics.Y, rotNumerics.Z);
+                }
 
                 Vector3 scale = selected.Scale;
-                if (ImGui.DragFloat3("Scale", ref scale, 0.1f)) selected.Scale = scale;
+                var scaleNumerics = new System.Numerics.Vector3(scale.X, scale.Y, scale.Z);
+                if (ImGui.DragFloat3("Scale", ref scaleNumerics, 0.1f))
+                {
+                    selected.Scale = new Vector3(scaleNumerics.X, scaleNumerics.Y, scaleNumerics.Z);
+                }
 
                 ImGui.Separator();
                 ImGui.Text("Attributes");
@@ -252,8 +264,7 @@ public class EditorApp : IDisposable
 
         if (ImGui.Begin("Simulation Status"))
         {
-            ImGui.Te
-xt($"Tick: {_engine.TickCount}");
+            ImGui.Text($"Tick: {_engine.TickCount}");
             ImGui.Text($"Entities: {_engine.Entities.Count}");
             ImGui.Text($"Connections: {_engine.Connections.Count}");
             ImGui.Separator();
