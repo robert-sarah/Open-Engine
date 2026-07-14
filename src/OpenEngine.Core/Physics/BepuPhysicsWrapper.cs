@@ -128,7 +128,12 @@ namespace OpenEngine.Core.Physics
         {
         }
 
-        public bool AllowContactGeneration(int workerIndex, CollidableReference a, CollidableReference b, float speculativeMargin)
+        public bool AllowContactGeneration(int workerIndex, CollidableReference a, CollidableReference b, ref float speculativeMargin)
+        {
+            return true;
+        }
+
+        public bool AllowContactGeneration(int workerIndex, CollidablePair pair, int childIndexA, int childIndexB, ref float speculativeMargin)
         {
             return true;
         }

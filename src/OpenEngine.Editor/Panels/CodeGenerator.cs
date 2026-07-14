@@ -165,7 +165,7 @@ namespace OpenEngine.Editor.Panels
                     }
                     break;
                 default:
-                    AppendLine($"// TODO: Implement {node.NodeType} node");
+                    AppendLine($"// Unsupported node type: {node.NodeType}");
                     break;
             }
         }
