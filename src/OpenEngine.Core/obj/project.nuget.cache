@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "BIPzymvjdcw=",
+  "dgSpecHash": "pB6a1Y9OFRA=",
   "success": true,
-  "projectFilePath": "C:\\Users\\GENIUS ELECTRONICS\\Downloads\\Open engine\\src\\OpenEngine.Core\\OpenEngine.Core.csproj",
+  "projectFilePath": "C:\\Users\\GENIUS ELECTRONICS\\Downloads\\Open Engine\\src\\OpenEngine.Core\\OpenEngine.Core.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\GENIUS ELECTRONICS\\.nuget\\packages\\bepuphysics\\2.4.0\\bepuphysics.2.4.0.nupkg.sha512",
     "C:\\Users\\GENIUS ELECTRONICS\\.nuget\\packages\\bepuutilities\\2.4.0\\bepuutilities.2.4.0.nupkg.sha512",

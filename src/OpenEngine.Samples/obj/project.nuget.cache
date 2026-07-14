@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "ObjoKXw+z28=",
+  "dgSpecHash": "GZFFKLIwBUw=",
   "success": false,
-  "projectFilePath": "C:\\Users\\GENIUS ELECTRONICS\\Downloads\\Open engine\\src\\OpenEngine.Samples\\OpenEngine.Samples.csproj",
+  "projectFilePath": "C:\\Users\\GENIUS ELECTRONICS\\Downloads\\Open Engine\\src\\OpenEngine.Samples\\OpenEngine.Samples.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\GENIUS ELECTRONICS\\.nuget\\packages\\bepuphysics\\2.4.0\\bepuphysics.2.4.0.nupkg.sha512",
     "C:\\Users\\GENIUS ELECTRONICS\\.nuget\\packages\\bepuutilities\\2.4.0\\bepuutilities.2.4.0.nupkg.sha512",
@@ -51,9 +51,9 @@
     {
       "code": "NU1101",
       "level": "Error",
-      "message": "Unable to find package ImGui.NET.Silk.NET. No packages exist with this id in source(s): Microsoft Visual Studio Offline Packages, nuget.org",
-      "projectPath": "C:\\Users\\GENIUS ELECTRONICS\\Downloads\\Open engine\\src\\OpenEngine.Samples\\OpenEngine.Samples.csproj",
-      "filePath": "C:\\Users\\GENIUS ELECTRONICS\\Downloads\\Open engine\\src\\OpenEngine.Samples\\OpenEngine.Samples.csproj",
+      "message": "Package ImGui.NET.Silk.NET introuvable. Aucun package associé à cet ID n'existe dans la ou les sources suivantes\u00A0: Microsoft Visual Studio Offline Packages, nuget.org",
+      "projectPath": "C:\\Users\\GENIUS ELECTRONICS\\Downloads\\Open Engine\\src\\OpenEngine.Samples\\OpenEngine.Samples.csproj",
+      "filePath": "C:\\Users\\GENIUS ELECTRONICS\\Downloads\\Open Engine\\src\\OpenEngine.Samples\\OpenEngine.Samples.csproj",
       "libraryId": "ImGui.NET.Silk.NET",
       "targetGraphs": [
         "net8.0"

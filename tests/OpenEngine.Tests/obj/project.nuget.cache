@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "MfDV80ch9vA=",
+  "dgSpecHash": "EZjM044PnUc=",
   "success": true,
-  "projectFilePath": "C:\\Users\\GENIUS ELECTRONICS\\Downloads\\Open engine\\tests\\OpenEngine.Tests\\OpenEngine.Tests.csproj",
+  "projectFilePath": "C:\\Users\\GENIUS ELECTRONICS\\Downloads\\Open Engine\\tests\\OpenEngine.Tests\\OpenEngine.Tests.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\GENIUS ELECTRONICS\\.nuget\\packages\\bepuphysics\\2.4.0\\bepuphysics.2.4.0.nupkg.sha512",
     "C:\\Users\\GENIUS ELECTRONICS\\.nuget\\packages\\bepuutilities\\2.4.0\\bepuutilities.2.4.0.nupkg.sha512",
@@ -62,10 +62,10 @@
     {
       "code": "NU1603",
       "level": "Warning",
-      "message": "OpenEngine.Tests depends on coverlet.collector (>= 6.0.5) but coverlet.collector 6.0.5 was not found. coverlet.collector 8.0.0 was resolved instead.",
-      "projectPath": "C:\\Users\\GENIUS ELECTRONICS\\Downloads\\Open engine\\tests\\OpenEngine.Tests\\OpenEngine.Tests.csproj",
+      "message": "OpenEngine.Tests dépend de coverlet.collector (>= 6.0.5) mais coverlet.collector 6.0.5 est introuvable. coverlet.collector 8.0.0 a été résolu à la place.",
+      "projectPath": "C:\\Users\\GENIUS ELECTRONICS\\Downloads\\Open Engine\\tests\\OpenEngine.Tests\\OpenEngine.Tests.csproj",
       "warningLevel": 1,
-      "filePath": "C:\\Users\\GENIUS ELECTRONICS\\Downloads\\Open engine\\tests\\OpenEngine.Tests\\OpenEngine.Tests.csproj",
+      "filePath": "C:\\Users\\GENIUS ELECTRONICS\\Downloads\\Open Engine\\tests\\OpenEngine.Tests\\OpenEngine.Tests.csproj",
       "libraryId": "coverlet.collector",
       "targetGraphs": [
         "net8.0"

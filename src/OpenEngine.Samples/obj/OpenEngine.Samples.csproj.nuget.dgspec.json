@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\GENIUS ELECTRONICS\\Downloads\\Open engine\\src\\OpenEngine.Samples\\OpenEngine.Samples.csproj": {}
+    "C:\\Users\\GENIUS ELECTRONICS\\Downloads\\Open Engine\\src\\OpenEngine.Samples\\OpenEngine.Samples.csproj": {}
   },
   "projects": {
-    "C:\\Users\\GENIUS ELECTRONICS\\Downloads\\Open engine\\src\\OpenEngine.Core\\OpenEngine.Core.csproj": {
+    "C:\\Users\\GENIUS ELECTRONICS\\Downloads\\Open Engine\\src\\OpenEngine.Core\\OpenEngine.Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\GENIUS ELECTRONICS\\Downloads\\Open engine\\src\\OpenEngine.Core\\OpenEngine.Core.csproj",
+        "projectUniqueName": "C:\\Users\\GENIUS ELECTRONICS\\Downloads\\Open Engine\\src\\OpenEngine.Core\\OpenEngine.Core.csproj",
         "projectName": "OpenEngine.Core",
-        "projectPath": "C:\\Users\\GENIUS ELECTRONICS\\Downloads\\Open engine\\src\\OpenEngine.Core\\OpenEngine.Core.csproj",
+        "projectPath": "C:\\Users\\GENIUS ELECTRONICS\\Downloads\\Open Engine\\src\\OpenEngine.Core\\OpenEngine.Core.csproj",
         "packagesPath": "C:\\Users\\GENIUS ELECTRONICS\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\GENIUS ELECTRONICS\\Downloads\\Open engine\\src\\OpenEngine.Core\\obj\\",
+        "outputPath": "C:\\Users\\GENIUS ELECTRONICS\\Downloads\\Open Engine\\src\\OpenEngine.Core\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -107,14 +107,14 @@
         }
       }
     },
-    "C:\\Users\\GENIUS ELECTRONICS\\Downloads\\Open engine\\src\\OpenEngine.Editor\\OpenEngine.Editor.csproj": {
+    "C:\\Users\\GENIUS ELECTRONICS\\Downloads\\Open Engine\\src\\OpenEngine.Editor\\OpenEngine.Editor.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\GENIUS ELECTRONICS\\Downloads\\Open engine\\src\\OpenEngine.Editor\\OpenEngine.Editor.csproj",
+        "projectUniqueName": "C:\\Users\\GENIUS ELECTRONICS\\Downloads\\Open Engine\\src\\OpenEngine.Editor\\OpenEngine.Editor.csproj",
         "projectName": "OpenEngine.Editor",
-        "projectPath": "C:\\Users\\GENIUS ELECTRONICS\\Downloads\\Open engine\\src\\OpenEngine.Editor\\OpenEngine.Editor.csproj",
+        "projectPath": "C:\\Users\\GENIUS ELECTRONICS\\Downloads\\Open Engine\\src\\OpenEngine.Editor\\OpenEngine.Editor.csproj",
         "packagesPath": "C:\\Users\\GENIUS ELECTRONICS\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\GENIUS ELECTRONICS\\Downloads\\Open engine\\src\\OpenEngine.Editor\\obj\\",
+        "outputPath": "C:\\Users\\GENIUS ELECTRONICS\\Downloads\\Open Engine\\src\\OpenEngine.Editor\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -135,8 +135,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\GENIUS ELECTRONICS\\Downloads\\Open engine\\src\\OpenEngine.Core\\OpenEngine.Core.csproj": {
-                "projectPath": "C:\\Users\\GENIUS ELECTRONICS\\Downloads\\Open engine\\src\\OpenEngine.Core\\OpenEngine.Core.csproj"
+              "C:\\Users\\GENIUS ELECTRONICS\\Downloads\\Open Engine\\src\\OpenEngine.Core\\OpenEngine.Core.csproj": {
+                "projectPath": "C:\\Users\\GENIUS ELECTRONICS\\Downloads\\Open Engine\\src\\OpenEngine.Core\\OpenEngine.Core.csproj"
               }
             }
           }
@@ -202,14 +202,14 @@
         }
       }
     },
-    "C:\\Users\\GENIUS ELECTRONICS\\Downloads\\Open engine\\src\\OpenEngine.LLM\\OpenEngine.LLM.csproj": {
+    "C:\\Users\\GENIUS ELECTRONICS\\Downloads\\Open Engine\\src\\OpenEngine.LLM\\OpenEngine.LLM.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\GENIUS ELECTRONICS\\Downloads\\Open engine\\src\\OpenEngine.LLM\\OpenEngine.LLM.csproj",
+        "projectUniqueName": "C:\\Users\\GENIUS ELECTRONICS\\Downloads\\Open Engine\\src\\OpenEngine.LLM\\OpenEngine.LLM.csproj",
         "projectName": "OpenEngine.LLM",
-        "projectPath": "C:\\Users\\GENIUS ELECTRONICS\\Downloads\\Open engine\\src\\OpenEngine.LLM\\OpenEngine.LLM.csproj",
+        "projectPath": "C:\\Users\\GENIUS ELECTRONICS\\Downloads\\Open Engine\\src\\OpenEngine.LLM\\OpenEngine.LLM.csproj",
         "packagesPath": "C:\\Users\\GENIUS ELECTRONICS\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\GENIUS ELECTRONICS\\Downloads\\Open engine\\src\\OpenEngine.LLM\\obj\\",
+        "outputPath": "C:\\Users\\GENIUS ELECTRONICS\\Downloads\\Open Engine\\src\\OpenEngine.LLM\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -230,8 +230,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\GENIUS ELECTRONICS\\Downloads\\Open engine\\src\\OpenEngine.Core\\OpenEngine.Core.csproj": {
-                "projectPath": "C:\\Users\\GENIUS ELECTRONICS\\Downloads\\Open engine\\src\\OpenEngine.Core\\OpenEngine.Core.csproj"
+              "C:\\Users\\GENIUS ELECTRONICS\\Downloads\\Open Engine\\src\\OpenEngine.Core\\OpenEngine.Core.csproj": {
+                "projectPath": "C:\\Users\\GENIUS ELECTRONICS\\Downloads\\Open Engine\\src\\OpenEngine.Core\\OpenEngine.Core.csproj"
               }
             }
           }
@@ -271,14 +271,14 @@
         }
       }
     },
-    "C:\\Users\\GENIUS ELECTRONICS\\Downloads\\Open engine\\src\\OpenEngine.Samples\\OpenEngine.Samples.csproj": {
+    "C:\\Users\\GENIUS ELECTRONICS\\Downloads\\Open Engine\\src\\OpenEngine.Samples\\OpenEngine.Samples.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\GENIUS ELECTRONICS\\Downloads\\Open engine\\src\\OpenEngine.Samples\\OpenEngine.Samples.csproj",
+        "projectUniqueName": "C:\\Users\\GENIUS ELECTRONICS\\Downloads\\Open Engine\\src\\OpenEngine.Samples\\OpenEngine.Samples.csproj",
         "projectName": "OpenEngine.Samples",
-        "projectPath": "C:\\Users\\GENIUS ELECTRONICS\\Downloads\\Open engine\\src\\OpenEngine.Samples\\OpenEngine.Samples.csproj",
+        "projectPath": "C:\\Users\\GENIUS ELECTRONICS\\Downloads\\Open Engine\\src\\OpenEngine.Samples\\OpenEngine.Samples.csproj",
         "packagesPath": "C:\\Users\\GENIUS ELECTRONICS\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\GENIUS ELECTRONICS\\Downloads\\Open engine\\src\\OpenEngine.Samples\\obj\\",
+        "outputPath": "C:\\Users\\GENIUS ELECTRONICS\\Downloads\\Open Engine\\src\\OpenEngine.Samples\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -299,14 +299,14 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "C:\\Users\\GENIUS ELECTRONICS\\Downloads\\Open engine\\src\\OpenEngine.Core\\OpenEngine.Core.csproj": {
-                "projectPath": "C:\\Users\\GENIUS ELECTRONICS\\Downloads\\Open engine\\src\\OpenEngine.Core\\OpenEngine.Core.csproj"
+              "C:\\Users\\GENIUS ELECTRONICS\\Downloads\\Open Engine\\src\\OpenEngine.Core\\OpenEngine.Core.csproj": {
+                "projectPath": "C:\\Users\\GENIUS ELECTRONICS\\Downloads\\Open Engine\\src\\OpenEngine.Core\\OpenEngine.Core.csproj"
               },
-              "C:\\Users\\GENIUS ELECTRONICS\\Downloads\\Open engine\\src\\OpenEngine.Editor\\OpenEngine.Editor.csproj": {
-                "projectPath": "C:\\Users\\GENIUS ELECTRONICS\\Downloads\\Open engine\\src\\OpenEngine.Editor\\OpenEngine.Editor.csproj"
+              "C:\\Users\\GENIUS ELECTRONICS\\Downloads\\Open Engine\\src\\OpenEngine.Editor\\OpenEngine.Editor.csproj": {
+                "projectPath": "C:\\Users\\GENIUS ELECTRONICS\\Downloads\\Open Engine\\src\\OpenEngine.Editor\\OpenEngine.Editor.csproj"
               },
-              "C:\\Users\\GENIUS ELECTRONICS\\Downloads\\Open engine\\src\\OpenEngine.LLM\\OpenEngine.LLM.csproj": {
-                "projectPath": "C:\\Users\\GENIUS ELECTRONICS\\Downloads\\Open engine\\src\\OpenEngine.LLM\\OpenEngine.LLM.csproj"
+              "C:\\Users\\GENIUS ELECTRONICS\\Downloads\\Open Engine\\src\\OpenEngine.LLM\\OpenEngine.LLM.csproj": {
+                "projectPath": "C:\\Users\\GENIUS ELECTRONICS\\Downloads\\Open Engine\\src\\OpenEngine.LLM\\OpenEngine.LLM.csproj"
               }
             }
           }
